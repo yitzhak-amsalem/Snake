@@ -26,7 +26,7 @@ public class Game extends JFrame {
             while (true) {
                 repaint();
                 try {
-                    Thread.sleep(Def.GAME_SPEED);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

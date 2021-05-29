@@ -22,29 +22,36 @@ public class Snake {
 
     }
     public void move (int direction) {
-        this.head.move(direction);
+        moveHead(direction);
         for (int i = 0; i<this.body.length; i++) {
             this.body[i].move(direction);
         }
 
     }
-//    public void moveBody (int direction) {
-//        switch (direction) {
-//            case Def.DIRECTION_RIGHT:
-//                if (Head.)
-//                    this.x+=5;
-//                break;
-//            case Def.DIRECTION_LEFT:
-//                this.x-=5;
-//                break;
-//            case Def.DIRECTION_UP:
-//                this.y-=5;
-//                break;
-//            case Def.DIRECTION_DOWN:
-//                this.y+=5;
-//                break;
-//        }
-//    }
+    public void moveHead(int direction) {
+        switch (direction) {
+            case Def.DIRECTION_RIGHT:
+                if (this.head.getX() + Def.SNAKE_HEIGHT == this.body[0].getX() && this.head.getY() == this.body[0].getY()) {
+                    break;
+                } else this.head.setX(this.head.getX()+20);
+                break;
+            case Def.DIRECTION_LEFT:
+                if (this.head.getX() - Def.SNAKE_HEIGHT == this.body[0].getX() && this.head.getY() == this.body[0].getY()) {
+                    break;
+                } else this.head.setX(this.head.getX()-20);
+                break;
+            case Def.DIRECTION_UP:
+                if (this.head.getX() == this.body[0].getX() && this.head.getY() == this.body[0].getY() + Def.SNAKE_HEIGHT) {
+                    break;
+                } else this.head.setY(this.head.getY()-20);
+                break;
+            case Def.DIRECTION_DOWN:
+                if (this.head.getX() == this.body[0].getX() && this.head.getY() + Def.SNAKE_HEIGHT == this.body[0].getY()) {
+                    break;
+                } else this.head.setY(this.head.getY()+20);
+                break;
+        }
+    }
 
 
     public void setBody(Body[] body) {

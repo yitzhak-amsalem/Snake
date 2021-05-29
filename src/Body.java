@@ -64,53 +64,47 @@ public class Body {
         switch (direction) {
             case Def.DIRECTION_RIGHT:
                 if (this.head.getX() > this.x && this.head.getY() == this.y){
-                    this.x++;
+                    this.x+=20;
                 }
                 if (this.head.getY() < this.y && this.head.getX() <= this.x + Def.SNAKE_HEIGHT){    //מלמטה למעלה
-                    this.y--;
+                    this.y-=20;
                 }
                 if (this.head.getY() > this.y && this.head.getX() <= this.x + Def.SNAKE_HEIGHT){   //מלמעלה למטה
-                    this.y++;
+                    this.y+=20;
                 }
-//                if (this.head.getX() - Def.SNAKE_HEIGHT == this.x && this.head.getY() == this.y) {
-//                    break;
-//                }
                 break;
             case Def.DIRECTION_LEFT:
                 if (this.head.getX() < this.x && this.head.getY() == this.y){
-                    this.x--;
+                    this.x-=20;
                 }
                 if (this.head.getY() < this.y && this.head.getX() <= this.x + Def.SNAKE_HEIGHT){    //מלמטה למעלה
-                    this.y--;
+                    this.y-=20;
                 }
                 if (this.head.getY() > this.y && this.head.getX() <= this.x + Def.SNAKE_HEIGHT){   //מלמעלה למטה
-                    this.y++;
+                    this.y+=20;
                 }
-//                if (this.head.getX() == this.x - Def.SNAKE_HEIGHT && this.head.getY() == this.y) {
-//                    break;
-//                }
                 break;
             case Def.DIRECTION_UP:
                 if (this.head.getY() < this.y && this.head.getX() == this.x){
-                    this.y--;
+                    this.y-=20;
                 }
                 if (this.head.getX() < this.x && this.head.getY() + Def.SNAKE_HEIGHT >= this.y ){    //מימין לשמאל
-                    this.x--;
+                    this.x-=20;
                 }
                 if (this.head.getX() > this.x && this.head.getY() + Def.SNAKE_HEIGHT >= this.y){   //משמאל לימין
-                    this.x++;
+                    this.x+=20;
                 }
                 else break;
                 break;
             case Def.DIRECTION_DOWN:
                 if (this.head.getY() > this.y && this.head.getX() == this.x){
-                    this.y++;
+                    this.y+=20;
                 }
                 if (this.head.getX() < this.x && this.head.getY() + Def.SNAKE_HEIGHT >= this.y){    //משמאל לימין
-                    this.x--;
+                    this.x-=20;
                 }
                 if (this.head.getX() > this.x && this.head.getY() + Def.SNAKE_HEIGHT >= this.y){   //מימין לשמאל
-                    this.x++;
+                    this.x+=20;
                 }
                 else break;
                 break;
