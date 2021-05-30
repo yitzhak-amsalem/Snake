@@ -3,6 +3,11 @@ import java.awt.event.KeyListener;
 
 public class PlayerMovement implements KeyListener {
     private Snake player;
+    private int direction;
+
+    public PlayerMovement(int direction) {
+        this.direction = 0;
+    }
 
     public PlayerMovement(Snake player){
         this.player = player;
@@ -18,16 +23,28 @@ public class PlayerMovement implements KeyListener {
         int keyCode = e.getKeyCode();
         switch (keyCode) {
             case KeyEvent.VK_RIGHT:
-                this.player.move(Def.DIRECTION_RIGHT);
+                if (getDirection() != Def.DIRECTION_LEFT){
+                    setDirection(Def.DIRECTION_RIGHT);
+                    this.player.move(direction);
+                }
                 break;
             case KeyEvent.VK_LEFT:
-                this.player.move(Def.DIRECTION_LEFT);
+                if (getDirection() != Def.DIRECTION_RIGHT){
+                    setDirection(Def.DIRECTION_LEFT);
+                    this.player.move(direction);
+                }
                 break;
             case KeyEvent.VK_UP:
-                this.player.move(Def.DIRECTION_UP);
+                if (getDirection() != Def.DIRECTION_DOWN) {
+                    setDirection(Def.DIRECTION_UP);
+                    this.player.move(direction);
+                }
                 break;
             case KeyEvent.VK_DOWN:
-                this.player.move(Def.DIRECTION_DOWN);
+                if (getDirection() != Def.DIRECTION_UP) {
+                    setDirection(Def.DIRECTION_DOWN);
+                    this.player.move(direction);
+                }
                 break;
 
         }
@@ -37,5 +54,13 @@ public class PlayerMovement implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public int getDirection() {
+        return direction;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
     }
 }

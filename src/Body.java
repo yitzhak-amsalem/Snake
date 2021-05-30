@@ -16,7 +16,7 @@ public class Body {
     }
 
     public void paint(Graphics graphics) {
-        graphics.setColor(Color.GREEN);
+        graphics.setColor(Color.BLUE);
         graphics.fillRect(this.x, this.y, this.width, this.height);
     }
 
@@ -60,7 +60,7 @@ public class Body {
         this.head = head;
     }
 
-    public void move(int direction) {
+    public void moveBody(int direction) {
         switch (direction) {
             case Def.DIRECTION_RIGHT:
                 if (this.head.getX() > this.x && this.head.getY() == this.y){
@@ -94,7 +94,7 @@ public class Body {
                 if (this.head.getX() > this.x && this.head.getY() + Def.SNAKE_HEIGHT >= this.y){   //משמאל לימין
                     this.x+=20;
                 }
-                else break;
+
                 break;
             case Def.DIRECTION_DOWN:
                 if (this.head.getY() > this.y && this.head.getX() == this.x){
@@ -106,7 +106,7 @@ public class Body {
                 if (this.head.getX() > this.x && this.head.getY() + Def.SNAKE_HEIGHT >= this.y){   //מימין לשמאל
                     this.x+=20;
                 }
-                else break;
+
                 break;
         }
     }

@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Game extends JFrame {
-    //    private Robot robot;
     private Snake player;
     private Frame frame;
 
