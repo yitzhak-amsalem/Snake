@@ -15,29 +15,9 @@ public class Head {
 
 
     public void paint(Graphics graphics) {
-        graphics.setColor(Color.RED);
+        graphics.setColor(Color.YELLOW);
         graphics.fillRect(this.x, this.y, this.width, this.height);
     }
-
-
-//    public void move(int direction) {
-//        switch (direction) {
-//            case Def.DIRECTION_RIGHT:
-//                this.x++;
-//                break;
-//            case Def.DIRECTION_LEFT:
-//                if (this.head.getX() - Def.SNAKE_HEIGHT == this.x && this.head.getY() == this.y) {
-//                    this.x--;
-//                }
-//                break;
-//            case Def.DIRECTION_UP:
-//                this.y--;
-//                break;
-//            case Def.DIRECTION_DOWN:
-//                this.y++;
-//                break;
-//        }
-//    }
 
     public int getX() {
         return x;
