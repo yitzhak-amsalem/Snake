@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Game extends JFrame {
-    //    private Robot robot;
     private Snake player;
     private Frame frame;
 
@@ -18,15 +17,27 @@ public class Game extends JFrame {
         this.frame = new Frame();
         PlayerMovement playerMovement = new PlayerMovement(this.player);
         this.addKeyListener(playerMovement);
-        this.mainGameLoop();
+        this.mainGameLoop(playerMovement);
 
     }
-    public void mainGameLoop () {
+    public void mainGameLoop (PlayerMovement playerMovement) {
         new Thread(() -> {
             while (true) {
                 repaint();
                 try {
-                    Thread.sleep(10);
+                    if (playerMovement.getDirection() == Def.DIRECTION_RIGHT) {
+                        this.player.move(playerMovement.getDirection());
+                    }
+                    if (playerMovement.getDirection() == Def.DIRECTION_LEFT) {
+                        this.player.move(playerMovement.getDirection());
+                    }
+                    if (playerMovement.getDirection() == Def.DIRECTION_UP) {
+                        this.player.move(playerMovement.getDirection());
+                    }
+                    if (playerMovement.getDirection() == Def.DIRECTION_DOWN) {
+                        this.player.move(playerMovement.getDirection());
+                    }
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

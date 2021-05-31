@@ -5,14 +5,12 @@ public class Body {
     private int y;
     private int width;
     private int height;
-    private Head head;
 
-    public Body(int x, int y, int width, int height, Head head) {
+    public Body(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.head = head;
     }
 
     public void paint(Graphics graphics) {
@@ -50,14 +48,6 @@ public class Body {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    public Head getHead() {
-        return head;
-    }
-
-    public void setHead(Head head) {
-        this.head = head;
     }
 
 //    public void moveBody(int direction) {

@@ -5,12 +5,9 @@ public class PlayerMovement implements KeyListener {
     private Snake player;
     private int direction;
 
-    public PlayerMovement(int direction) {
-        this.direction = 0;
-    }
-
     public PlayerMovement(Snake player){
         this.player = player;
+        this.direction = Def.DIRECTION_RIGHT;
     }
 
     @Override
