@@ -1,10 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Game extends JFrame {
     private Snake player;
     private Frame frame;
-
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -22,7 +23,7 @@ public class Game extends JFrame {
     }
     public void mainGameLoop (PlayerMovement playerMovement) {
         new Thread(() -> {
-            while (true) {
+            while (this.player.getRun()) {
                 repaint();
                 try {
                     if (playerMovement.getDirection() == Def.DIRECTION_RIGHT) {
@@ -62,6 +63,8 @@ public class Game extends JFrame {
         super.paint(graphics);
         this.player.paint(graphics);
         this.frame.paint(graphics);
+        this.player.getApple().paint(graphics);
+
     }
 
 

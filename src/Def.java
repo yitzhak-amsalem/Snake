@@ -10,8 +10,8 @@ public class Def {
 
 
     public static final int FRAME_START = 0;
-    public static final int FRAME_THICKNESS = 12;
-    public static final int FRAME_UP_THICKNESS = 35;
+    public static final int FRAME_THICKNESS = 20;
+    public static final int FRAME_UP_THICKNESS = 40;
 
 
     public static final int DIRECTION_RIGHT = 1;

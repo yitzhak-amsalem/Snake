@@ -13,7 +13,6 @@ public class Head {
         this.height = height;
     }
 
-
     public void paint(Graphics graphics) {
         graphics.setColor(Color.YELLOW);
         graphics.fillRect(this.x, this.y, this.width, this.height);
