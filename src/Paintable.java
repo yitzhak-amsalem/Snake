@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public interface Paintable {
+import java.awt.*;
+
+public interface Paintable {
+    public void paint(Graphics graphics);
 }
