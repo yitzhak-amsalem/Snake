@@ -15,12 +15,15 @@ public class Game extends JFrame implements Paintable {
         this.player = new GameScene();
         this.init();
         JLabel score1 = new JLabel();
-//        this.player = new GameScene();
         PlayerMovement playerMovement = new PlayerMovement(this.player);
         this.addKeyListener(playerMovement);
         this.mainGameLoop(playerMovement, score1);
 
+//        boolean level = false;
+//        this.player.setEasy(level);
+
     }
+
     public void mainGameLoop (PlayerMovement playerMovement, JLabel score1) {
         new Thread(() -> {
             while (this.player.isRun()) {
@@ -39,21 +42,26 @@ public class Game extends JFrame implements Paintable {
                         this.player.move(playerMovement.getDirection());
                     }
                     Thread.sleep(Def.GAME_SPEED);
+
+
                     score1.setLayout(null);
                     score1.setText("SCORE:" + this.player.getPoints());
-
                     score1.setBounds(900, 10, 100, 20);
                     this.add(score1);
+
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+
             if (!this.player.isRun()){
                 score1.setLayout(null);
                 score1.setText("YOUR SCORE IS:" + this.player.getPoints());
                 score1.setBounds(500, 300, 100, 20);
                 this.add(score1);
             }
+
         }).start();
 
     }
@@ -68,12 +76,8 @@ public class Game extends JFrame implements Paintable {
         this.setResizable(true);
         this.setTitle("Snake");
 
-
-//        PrintScore score = new PrintScore("SCORE: " + this.player.getPoints());
-//        score.setBounds(250, 100, 400, 70);
-//        this.add(score);
-
     }
+
     public void paint(Graphics graphics){
         super.paint(graphics);
         paintFrame(graphics);

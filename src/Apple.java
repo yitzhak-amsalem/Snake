@@ -7,7 +7,7 @@ public class Apple extends Dice implements Paintable{
         super(x, y, width, height);
     }
 
-    public void createApple(Body[] body){
+    public void createNewApple(Body[] body){
         Random random = new Random();
         int randomX = random.nextInt(Def.LIMIT_RANDOM_X) + Def.MORE_THAN_RANDOM_X;
         int randomY = random.nextInt(Def.LIMIT_RANDOM_Y) + Def.MORE_THAN_RANDOM_Y;
@@ -29,7 +29,7 @@ public class Apple extends Dice implements Paintable{
     }
 
     public void paint(Graphics graphics) {
-        graphics.setColor(Color.BLACK);
+        graphics.setColor(Color.RED);
         graphics.fillRect(super.getX(), super.getY(), super.getWidth(), super.getHeight());
     }
 

@@ -9,7 +9,7 @@ public class GameScene {
 
     public GameScene() {
         this.run = true;
-        this.easy = true;
+//        this.easy = true;
         this.apple = new Apple(Def.APPLE_START_X_Y,Def.APPLE_START_X_Y, Def.SNAKE_WIDTH, Def.SNAKE_HEIGHT);
         this.snake = new Snake();
         this.points = 0;
@@ -31,7 +31,7 @@ public class GameScene {
             setRun(checkStopRunByBody() && checkStopByFrame());
         }
         if (isApple()) {
-            this.apple.createApple(this.snake.getBody());
+            this.apple.createNewApple(this.snake.getBody());
             setPoints(getPoints()+1);
             addBody();
         }
@@ -76,6 +76,8 @@ public class GameScene {
         for (int i = this.snake.getBody().length - 1; i >= 0; i--) {
             if (this.snake.getHead().getX() == this.snake.getBody()[i].getX()
                     && this.snake.getHead().getY() == this.snake.getBody()[i].getY()) {
+//                this.snake.getHead().setX(this.snake.getBody()[0].getX());
+//                this.snake.getHead().setY(this.snake.getBody()[0].getY());
                 return false;
             }
         }
