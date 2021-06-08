@@ -1,18 +1,21 @@
+import javax.swing.*;
+
 public class GameScene {
     private boolean run;
     private boolean easy;
     private Apple apple;
     private Snake snake;
+    private int points;
 
     public GameScene() {
         this.run = true;
         this.easy = true;
         this.apple = new Apple(Def.APPLE_START_X_Y,Def.APPLE_START_X_Y, Def.SNAKE_WIDTH, Def.SNAKE_HEIGHT);
         this.snake = new Snake();
+        this.points = 0;
     }
 
     public void move (int direction) {
-        this.apple.createApple(this.snake.getBody());
         for (int i = this.snake.getBody().length - 1; i > 0; i--) {
             this.snake.getBody()[i].setX(this.snake.getBody()[i - 1].getX());
             this.snake.getBody()[i].setY(this.snake.getBody()[i - 1].getY());
@@ -20,16 +23,17 @@ public class GameScene {
         this.snake.getBody()[0].setX(this.snake.getHead().getX());
         this.snake.getBody()[0].setY(this.snake.getHead().getY());
         moveHead(direction);
-        this.apple.setNewApple(isApple());
-        if (isApple()){
-            addBody();
-        }
         if (easy) {
             withoutWalls();
             setRun(checkStopRunByBody());
         }
         else {
             setRun(checkStopRunByBody() && checkStopByFrame());
+        }
+        if (isApple()) {
+            this.apple.createApple(this.snake.getBody());
+            setPoints(getPoints()+1);
+            addBody();
         }
     }
 
@@ -131,6 +135,14 @@ public class GameScene {
 
     public void setEasy(boolean easy) {
         this.easy = easy;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
 

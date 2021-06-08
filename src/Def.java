@@ -8,7 +8,7 @@ public class Def {
     public static final int SNAKE_HEIGHT = 20;
     public static final int SNAKE_STEP = 20;
 
-    public static final int SIZE_DEFAULT_BODY = 70;
+    public static final int SIZE_DEFAULT_BODY = 10;
 
     public static final int APPLE_START_X_Y = 80;
 

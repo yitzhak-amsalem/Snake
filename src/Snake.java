@@ -21,21 +21,6 @@ public class Snake implements Paintable{
         this.head.paint(graphics);
     }
 
-//    public int calculateMoveHead (int direction) {
-//        int nextStep = 0;
-//        switch (direction) {
-//            case Def.DIRECTION_RIGHT:
-//                return this.head.getX() + 20;
-//            case Def.DIRECTION_LEFT:
-//                return this.head.getX() - 20;
-//            case Def.DIRECTION_UP:
-//                return this.head.getY() - 20;
-//            case Def.DIRECTION_DOWN:
-//                return this.head.getY() + 20;
-//        }
-//        return nextStep;
-//    }
-
     public Body[] getBody() {
         return body;
     }
