@@ -9,7 +9,6 @@ public class GameScene {
 
     public GameScene() {
         this.run = true;
-//        this.easy = true;
         this.apple = new Apple(Def.APPLE_START_X_Y,Def.APPLE_START_X_Y, Def.SNAKE_WIDTH, Def.SNAKE_HEIGHT);
         this.snake = new Snake();
         this.points = 0;

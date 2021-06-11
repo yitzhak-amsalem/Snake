@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Def {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
@@ -8,7 +11,7 @@ public class Def {
     public static final int SNAKE_HEIGHT = 20;
     public static final int SNAKE_STEP = 20;
 
-    public static final int SIZE_DEFAULT_BODY = 10;
+    public static final int SIZE_DEFAULT_BODY = 100;
 
     public static final int APPLE_START_X_Y = 80;
 
@@ -16,6 +19,9 @@ public class Def {
     public static final int FRAME_THICKNESS = 20;
     public static final int FRAME_UP_THICKNESS = 40;
 
+    public static final int PRE_GAME = 0;
+    public static final int GAME_START = 1;
+    public static final int GAME_OVER = 2;
 
     public static final int DIRECTION_RIGHT = 1;
     public static final int DIRECTION_LEFT = 2;
