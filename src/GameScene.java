@@ -31,7 +31,7 @@ public class GameScene {
         }
         if (isApple()) {
             this.apple.createNewApple(this.snake.getBody());
-            setPoints(getPoints()+1);
+            setPoints(getPoints() + Def.ONE_POINT);
             addBody();
         }
     }
@@ -75,8 +75,8 @@ public class GameScene {
         for (int i = this.snake.getBody().length - 1; i >= 0; i--) {
             if (this.snake.getHead().getX() == this.snake.getBody()[i].getX()
                     && this.snake.getHead().getY() == this.snake.getBody()[i].getY()) {
-//                this.snake.getHead().setX(this.snake.getBody()[0].getX());
-//                this.snake.getHead().setY(this.snake.getBody()[0].getY());
+                this.snake.getHead().setX(this.snake.getBody()[0].getX());
+                this.snake.getHead().setY(this.snake.getBody()[0].getY());
                 return false;
             }
         }
@@ -87,6 +87,8 @@ public class GameScene {
                 || this.snake.getHead().getY() == Def.FRAME_START+Def.FRAME_THICKNESS
                 || this.snake.getHead().getX() == Def.WIDTH-Def.FRAME_THICKNESS
                 || this.snake.getHead().getY() == Def.HEIGHT-Def.FRAME_THICKNESS ) {
+            this.snake.getHead().setX(this.snake.getBody()[0].getX());
+            this.snake.getHead().setY(this.snake.getBody()[0].getY());
             return false;
         }
         return true;

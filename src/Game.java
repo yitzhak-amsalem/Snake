@@ -19,9 +19,9 @@ public class Game extends JFrame implements Paintable {
 
     public void setupButtons(){
         JButton easyBtn = new JButton("Easy");
-        easyBtn.setBounds(390,290,100,20);
+        easyBtn.setBounds(Def.BUTTON_EASY_X,Def.BUTTONS_Y,Def.BUTTONS_WIDTH,Def.BUTTONS_HEIGHT);
         JButton hardBtn = new JButton("Hard");
-        hardBtn.setBounds(510,290,100,20);
+        hardBtn.setBounds(Def.BUTTON_HARD_X,Def.BUTTONS_Y,Def.BUTTONS_WIDTH,Def.BUTTONS_HEIGHT);
         easyBtn.addActionListener((e -> {
             this.setIdScene(Def.GAME_START);
             this.startGame(true,easyBtn,hardBtn);
@@ -48,10 +48,10 @@ public class Game extends JFrame implements Paintable {
 
     public void mainGameLoop (PlayerMovement playerMovement) {
         new Thread(() -> {
-            while (this.getIdScene()>0) {
+            while (this.getIdScene() > Def.PRE_GAME) {
                 if (!this.player.isRun()) {
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(Def.GAME_OVER_SPEED);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -81,9 +81,6 @@ public class Game extends JFrame implements Paintable {
                     }
                 }
             }
-
-
-
         }).start();
 
     }
@@ -104,22 +101,22 @@ public class Game extends JFrame implements Paintable {
         super.paint(graphics);
         switch (this.idScene){
             case Def.PRE_GAME:
-                graphics.drawString("SNAKE",475, 100);
-                graphics.drawString("Navigate with the arrows on the keyboard and eat the apples,", 350,200);
-                graphics.drawString("The game has 2 levels:", 350,220);
-                graphics.drawString("'Easy level': You can go through the walls", 350,240);
-                graphics.drawString("'Hard level': Be careful not to collide with walls", 350,260);
-                graphics.drawString("Select the desired game level", 350,280);
+                graphics.drawString("SNAKE",Def.TITLE_PRINT_X, Def.TITLE_PRINT_Y);
+                graphics.drawString("Navigate with the arrows on the keyboard and eat the apples,", Def.INSTRUCTIONS_PRINT_X, Def.INSTRUCTIONS_PRINT_Y );
+                graphics.drawString("The game has 2 levels:",Def.INSTRUCTIONS_PRINT_X, Def.INSTRUCTIONS_PRINT_Y + Def.LINEBREAK_PRINT * Def.FIRST_LINE);
+                graphics.drawString("'Easy level': You can go through the walls", Def.INSTRUCTIONS_PRINT_X, Def.INSTRUCTIONS_PRINT_Y + Def.LINEBREAK_PRINT * Def.SECOND_LINE);
+                graphics.drawString("'Hard level': Be careful not to collide with walls", Def.INSTRUCTIONS_PRINT_X, Def.INSTRUCTIONS_PRINT_Y + Def.LINEBREAK_PRINT * Def.THIRD_LINE);
+                graphics.drawString("Select the desired game level", Def.INSTRUCTIONS_PRINT_X, Def.INSTRUCTIONS_PRINT_Y + Def.LINEBREAK_PRINT * Def.FOURTH_LINE);
                 break;
             case Def.GAME_START:
                 paintFrame(graphics);
                 this.player.getSnake().paint(graphics);
                 this.player.getApple().paint(graphics);
-                graphics.drawString("SCORE:" + this.player.getPoints(),920,55);
+                graphics.drawString("SCORE:" + this.player.getPoints(),Def.SCORE_PRINT_X,Def.SCORE_PRINT_Y);
                 break;
             case Def.GAME_OVER:
-                graphics.drawString("--GAME OVER--",450,280);
-                graphics.drawString("YOUR SCORE IS: " + this.player.getPoints(),450,320);
+                graphics.drawString("--GAME OVER--",Def.GAME_OVER_PRINT_X,Def.GAME_OVER_PRINT_Y);
+                graphics.drawString("YOUR SCORE IS: " + this.player.getPoints(),Def.GAME_OVER_PRINT_X,Def.GAME_OVER_PRINT_Y + Def.LINEBREAK_PRINT);
                 break;
         }
 

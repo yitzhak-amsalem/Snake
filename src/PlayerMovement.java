@@ -20,7 +20,7 @@ public class PlayerMovement implements KeyListener {
         int keyCode = e.getKeyCode();
         switch (keyCode) {
             case KeyEvent.VK_RIGHT:
-                if (getDirection() != Def.DIRECTION_LEFT){
+                if (getDirection() != Def.DIRECTION_LEFT) {
                     if (getDirection() != Def.DIRECTION_RIGHT) {
                         setDirection(Def.DIRECTION_RIGHT);
                         this.player.move(direction);
@@ -28,7 +28,7 @@ public class PlayerMovement implements KeyListener {
                 }
                 break;
             case KeyEvent.VK_LEFT:
-                if (getDirection() != Def.DIRECTION_RIGHT){
+                if (getDirection() != Def.DIRECTION_RIGHT) {
                     if (getDirection() != Def.DIRECTION_LEFT) {
                         setDirection(Def.DIRECTION_LEFT);
                         this.player.move(direction);
@@ -51,9 +51,7 @@ public class PlayerMovement implements KeyListener {
                     }
                 }
                 break;
-
         }
-
     }
 
     @Override

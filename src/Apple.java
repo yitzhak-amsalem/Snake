@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Random;
 
-public class Apple extends Dice implements Paintable{
+public class Apple extends Dice {
 
     public Apple(int x, int y, int width, int height) {
         super(x, y, width, height);

@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Head extends Dice implements Paintable{
+public class Head extends Dice {
 
     public Head(int x, int y, int width, int height) {
         super(x, y, width, height);

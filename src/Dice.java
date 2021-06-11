@@ -1,4 +1,4 @@
-public abstract class Dice {
+public abstract class Dice implements Paintable{
     private int x;
     private int y;
     private int width;
